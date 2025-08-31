@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diffraction Grating Simulator - Introduction</title>
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/visuphy/visuphy.github.io/refs/heads/main/favicon.png">
+
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+
+    <!-- Intro Page Styles -->
+    <link rel="stylesheet" href="intro_style.css">
+
+    <!-- Shared Header & Footer Styles -->
+    <link rel="stylesheet" href="/header.css">
+    <link rel="stylesheet" href="/footer.css">
+</head>
+<body>
+
+    <!-- Dynamic Header Include -->
+    <div id="header-placeholder"></div>
+
+    <!-- Main Introduction Content -->
+    <main class="intro-container">
+
+        <h1>Welcome to the Diffraction Grating Simulator</h1>
+
+        <!-- Simulator Preview with Play Button -->
+        <div class="simulator-preview">
+            <img src="Screenshot.png" alt="Screenshot of the Plarization 3D Simulator">
+            <a href="diffractiongrating.html" class="play-link" title="Launch Simulator">
+                <div class="play-button">
+                    <i class="fas fa-play"></i>
+                </div>
+            </a>
+        </div>
+
+        <!-- Information Section (Modified) -->
+        <section class="info-section">
+            <p>
+                <span class="author-info">
+                    Original Author: <a href="https://github.com/Hussein-Tofaili" target="_blank">Hussein-Tofaili</a>
+                </span>
+                <span class="info-separator">|</span>
+                <span class="source-info">
+                    Source Code: <a href="https://github.com/visuphy/DiffractionGrating" target="_blank">
+                        <i class="fab fa-github"></i> GitHub Repository
+                    </a>
+                </span>
+            </p>
+            <!-- Removed the "About & Discussion" paragraph -->
+        </section>
+
+        <!-- Description Section -->
+        <section class="description">
+            <h2>About This Simulator</h2>
+            <p>
+                Explore the principles of optical diffraction with this interactive and intuitive simulator. This tool provides a real-time visualization of the diffraction pattern generated when light interacts with a grating.</p>
+                <p>
+                You can adjust a comprehensive set of parameters, including the properties of the incident light—such as wavelength, bandwidth, and angle—and the physical characteristics of the grating, like groove density and type (reflective or transmissive).</p>
+                <p>
+                For a deeper analysis in monochromatic mode, simply click on a diffraction order to display its key quantitative properties, including the precise diffraction angle, angular and temporal dispersion, and the system's resolving power.
+            </p>
+                We appreciate your feedback! If you encounter any issues or have suggestions for improvement, please report them on our <a href="https://github.com/visuphy/DiffractionGrating/issues" target="_blank" rel="noopener noreferrer">GitHub Issues page</a>.
+            </p>
+             <p>
+                Click the play button above to launch the simulator!
+             </p>
+        </section>
+
+        <!-- Comments Section -->
+        <section class="comments-section">
+            <h2>Comments & Feedback</h2>
+            <script src="https://giscus.app/client.js"
+        data-repo="visuphy/DiffractionGrating"
+        data-repo-id="R_kgDOPnb5sQ"
+        data-category="Comments"
+        data-category-id="DIC_kwDOPnb5sc4CuziT"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+            <noscript>Please enable JavaScript to view the comments powered by Giscus.</noscript>
+        </section>
+
+    </main>
+
+    <!-- Dynamic Footer Include -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Script to include Header/Footer -->
+    <script src="/layout.js" defer></script>
+</body>
+</html>

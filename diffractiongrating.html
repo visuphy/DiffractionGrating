@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diffraction Grating Simulator</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Font Awesome CDN for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Link to local and shared styles -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/header.css">
+    <link rel="stylesheet" href="/footer.css">
+</head>
+<body>
+
+    <!-- This div will be populated by layout.js with the shared header content -->
+    <div id="header-placeholder"></div>
+
+    <!-- This H1 block contains the title and info specific to this page -->
+    <h1>
+      <!-- Wrapper for title and copyright -->
+      <div class="h1-title-group">
+        <span class="h1-title">Diffraction Grating Simulator</span>
+        <div class="h1-copyright">
+          © 2025 <a href="https://github.com/visuphy" target="_blank" title="Visit VisuPhy on GitHub">VisuPhy</a>
+        </div>
+      </div>
+      <!-- Container for the info links -->
+      <div class="h1-info">
+        <div class="info-item">
+          <span class="info-label">About and discussion</span>
+          <div class="info-content">
+            <a href="." target="_blank" title="About and Discussion">
+               <i class="fa-solid fa-file-invoice"></i>
+            </a>
+          </div>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Source</span>
+          <div class="info-content">
+            <a href="https://github.com/visuphy/DiffractionGrating" target="_blank" title="View Source on GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Original Author</span>
+          <div class="info-content">
+            <a href="https://github.com/Hussein-Tofaili" target="_blank">Hussein-Tofaili</a>
+          </div>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Other Contributors</span>
+          <div class="info-content">
+            <span style="color: #555;">none</span>
+          </div>
+        </div>
+      </div>
+    </h1>
+
+    <!-- Main content container, now holding the simulator -->
+    <div class="main-content">
+        <p class="page-description">Simulates the diffraction pattern of light from a reflective or transmissive grating.</p>
+
+        <main class="app-layout">
+            <div class="controls-container">
+                <!-- First Row: Incident Beam Properties -->
+                <div class="control-row">
+                    <div class="row-title">Incident Beam Properties</div>
+                    
+                    <div class="control-group">
+                        <label>Light Type</label>
+                        <div class="radio-group">
+                            <div>
+                                <input type="radio" id="monochromatic" name="lightType" value="monochromatic" checked>
+                                <label for="monochromatic">Monochromatic</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="whiteLight" name="lightType" value="whiteLight">
+                                <label for="whiteLight">White Light</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="monoControls" class="mono-controls-group">
+                        <div class="control-group">
+                            <div class="label-input-group">
+                                <label for="wavelength">Wavelength (λ):</label>
+                                <input type="number" id="wavelengthInput" value="550" step="1" class="value-input">
+                                <label for="wavelengthInput">nm</label>
+                            </div>
+                            <input type="range" id="wavelength" min="380" max="750" value="550">
+                            <div class="input-group">
+                                <input type="number" id="minWavelength" value="380">
+                                <label>to</label>
+                                <input type="number" id="maxWavelength" value="750">
+                                <button id="updateWavelengthRange">Set</button>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="label-input-group">
+                                <label for="bandwidth">Bandwidth (Δλ):</label>
+                                <input type="number" id="bandwidthInput" value="0" step="1" class="value-input">
+                                <label for="bandwidthInput">nm</label>
+                            </div>
+                            <input type="range" id="bandwidth" min="0" max="100" value="0" step="1">
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <div class="label-input-group">
+                            <label for="angle">Angle of Incidence (α):</label>
+                            <input type="number" id="angleInput" value="30" step="1" class="value-input">
+                            <label for="angleInput">°</label>
+                        </div>
+                        <input type="range" id="angle" min="-90" max="90" value="30">
+                    </div>
+                </div>
+                
+                <!-- Second Row: Grating Properties -->
+                <div class="control-row">
+                    <div class="row-title">Grating Properties</div>
+                    
+                    <div class="control-group">
+                        <div class="label-input-group">
+                            <label for="gratingSpacing">Grating Spacing (d):</label>
+                            <input type="number" id="gratingSpacingInput" value="2000" step="10" class="value-input">
+                            <label for="gratingSpacingInput">nm</label>
+                        </div>
+                        <input type="range" id="gratingSpacing" min="500" max="5000" value="2000">
+                    </div>
+                    
+                    <div class="control-group">
+                        <div class="label-input-group">
+                            <label for="grooveDensity">Groove Density:</label>
+                            <input type="number" id="grooveDensityInput" value="500" step="10" class="value-input">
+                            <label for="grooveDensityInput">l/mm</label>
+                        </div>
+                        <input type="range" id="grooveDensity" min="200" max="2000" value="500">
+                    </div>
+                    
+                    <div class="control-group">
+                        <div class="label-input-group">
+                            <label for="orders">Diffraction Orders (±m):</label>
+                            <input type="number" id="ordersInput" value="3" step="1" class="value-input">
+                        </div>
+                        <input type="range" id="orders" min="1" max="20" value="3">
+                    </div>
+                    
+                    <div class="control-group">
+                        <div class="label-input-group">
+                            <label for="grooves">Illuminated Grooves (N):</label>
+                            <input type="number" id="groovesInput" value="1000" step="100" class="value-input">
+                        </div>
+                        <input type="range" id="grooves" min="100" max="20000" value="1000" step="100">
+                    </div>
+                    
+                    <div class="control-group">
+                        <label>Grating Type</label>
+                        <div class="radio-group">
+                            <div>
+                                <input type="radio" id="reflective" name="gratingType" value="reflective" checked>
+                                <label for="reflective">Reflective</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="transmissive" name="gratingType" value="transmissive">
+                                <label for="transmissive">Transmissive</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="canvas-wrapper">
+                <canvas id="simulationCanvas" width="800" height="600"></canvas>
+                <p class="canvas-hint">Hint: Click on a diffraction order (in monochromatic mode) to view its properties.</p>
+                <p class="canvas-hint">The sign of the diffraction orders and the sign of angles depends on your convention. </p>
+            </div>
+        </main>
+    </div>
+
+    <!-- This div will be populated by layout.js with the shared footer content -->
+    <div id="footer-placeholder"></div>
+    
+    <!-- Scripts -->
+    <script src="/layout.js" defer></script>
+    <script src="script.js"></script>
+</body>
+</html>

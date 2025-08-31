@@ -1,0 +1,335 @@
+/* --- CSS Variables from Calculator --- */
+:root {
+    --bg-color: #f8f9fa;
+    --card-bg: #ffffff;
+    --text-color: #212529;
+    --primary-color: #007bff;
+    --primary-hover: #0056b3;
+    --secondary-color: #6c757d;
+    --secondary-hover: #5a6268;
+    --danger-color: #dc3545;
+    --danger-hover: #c82333;
+    --border-color: #dee2e6;
+    --info-bg: #eef1f5;
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    --border-radius: 8px;
+}
+
+/* --- General Body Styling (from Ribbon) --- */
+body {
+    font-family: 'Inter', sans-serif, system-ui;
+    background-color: var(--bg-color); /* Use theme background */
+    color: var(--text-color);
+    margin: 0;
+    font-size: 15px;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* --- Styles for the H1 Title Block (MODIFIED) --- */
+h1 {
+    /* Box model styles to match other cards */
+    max-width: 900px;
+    margin: 2rem auto 1rem auto; /* Center the box and add margin */
+    padding: 1.5rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+
+    /* Flexbox layout for internal content */
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    /* Font styles */
+    color: var(--text-color);
+    font-size: 2.1em;
+}
+
+/* Wrapper for title and copyright notice */
+.h1-title-group {
+    flex-shrink: 0;
+}
+
+/* Main title text */
+.h1-title {
+     display: block;
+     color: #343a40;
+}
+
+/* Copyright notice below title */
+.h1-copyright {
+    font-size: 0.5em;
+    font-weight: normal;
+    color: #555;
+    margin-top: 5px;
+}
+.h1-copyright a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+.h1-copyright a:hover {
+    text-decoration: underline;
+}
+
+/* Container for info items on the right */
+.h1-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+    font-size: 0.4em; /* Font size reduced */
+    text-align: center;
+    align-items: flex-start;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info-label {
+    font-weight: bold;
+    color: #444;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    font-size: 0.85em;
+    letter-spacing: 0.5px;
+}
+
+.info-content a, .info-content span {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 1.1em;
+}
+.info-content a:hover {
+    color: var(--primary-hover);
+}
+.h1-info a i {
+    font-size: 2em;
+    transition: transform 0.2s ease-in-out;
+}
+.h1-info a:hover i {
+    transform: scale(1.1);
+}
+
+/* --- Main content container --- */
+.main-content {
+    max-width: 900px;
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 2rem;
+    margin: 0 auto 2rem auto; /* Adjusted top margin */
+}
+
+/* Page description below title ribbon */
+.page-description {
+    text-align: center;
+    font-size: 1.05em;
+    color: var(--secondary-color);
+    margin: 0 auto 2rem auto;
+}
+
+/* --- Original Simulator Styles --- */
+
+.app-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.canvas-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+canvas {
+    border: 1px solid #dcdcdc;
+    background-color: #000010;
+    border-radius: 8px;
+    max-width: 100%;
+    height: auto;
+}
+
+.canvas-hint {
+    font-size: 13px;
+    color: #666;
+    margin: 0;
+    text-align: center;
+}
+
+.controls-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    width: 100%;
+    /* max-width is handled by main-content and app-layout */
+    border: 1px solid #eef;
+    box-sizing: border-box;
+}
+
+@media (min-width: 1280px) {
+    /* MODIFIED: Apply max-width to both h1 and main-content */
+    h1, .main-content {
+        max-width: 1280px;
+    }
+    .app-layout {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: center;
+    }
+    .controls-container {
+        max-width: 420px;
+        flex-shrink: 0;
+    }
+    .canvas-wrapper { max-width: 800px; }
+    canvas { max-width: 800px; }
+}
+
+.control-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px 25px;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.control-row:first-child {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+}
+
+.control-row:last-child {
+    background-color: #f1f8ff;
+    border: 1px solid #c8e6ff;
+}
+
+.row-title {
+    width: 100%;
+    text-align: center;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+/* NEW group for label and text input */
+.label-input-group {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+    white-space: nowrap;
+}
+
+.label-input-group > label:last-of-type {
+    font-weight: normal; /* Make unit label normal weight */
+}
+
+/* NEW style for the number input box */
+.value-input {
+    width: 65px;
+    padding: 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+    -moz-appearance: textfield; /* Firefox */
+}
+.value-input::-webkit-outer-spin-button,
+.value-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+.mono-controls-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    padding: 15px;
+    border: 1px dashed #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    width: 100%;
+}
+
+input[type="range"] {
+    width: 180px; /* Slightly wider to match group */
+    cursor: pointer;
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+}
+
+.radio-group div {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.radio-group label {
+    font-weight: normal;
+    font-size: 14px;
+    cursor: pointer;
+    color: #333;
+}
+
+.radio-group input[type="radio"] {
+    cursor: pointer;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.input-group input[type="number"] {
+    width: 60px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.input-group button {
+    padding: 5px 10px;
+    border: none;
+    background-color: #3498db;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.input-group button:hover {
+    background-color: #2980b9;
+}
